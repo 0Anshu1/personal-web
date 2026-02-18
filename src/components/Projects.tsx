@@ -17,7 +17,7 @@ const projects = [
     title: "Bit-Branch",
     problem: "IIITDM Kancheepuram students needed a centralized, synchronized portal for study materials and exam practice.",
     solution: "A custom platform synced with Google Classroom for materials, PYQs, and real-time exam scenario practice.",
-    link: "https://github.com/0Anshu1/bit-branch",
+    link: "https://69960f67fe642700091c1540--bit-branch.netlify.app/",
     github: "https://github.com/0Anshu1/bit-branch",
     tags: ["Education", "Google API", "Next.js", "IIITDMK"]
   },
