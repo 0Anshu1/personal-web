@@ -65,7 +65,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             className="relative"
           >
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl">
+            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-2xl">
                 <Image 
                     src="/profile.jpeg" 
                     alt="Anshu Saini" 
