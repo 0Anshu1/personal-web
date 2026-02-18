@@ -11,7 +11,7 @@ const projects = [
     link: "#",
     githubFE: "https://github.com/0Anshu1/verity-frontend",
     githubBE: "https://github.com/0Anshu1/verity-backend",
-    tags: ["AI", "Document Intelligence", "KYC", "Full Stack"]
+    tags: ["AI", "Python", "React", "Node.js","Machine Learning"]
   },
   {
     title: "Bit-Branch",
@@ -19,7 +19,7 @@ const projects = [
     solution: "A custom platform synced with Google Classroom for materials, PYQs, and real-time exam scenario practice.",
     link: "https://69960f67fe642700091c1540--bit-branch.netlify.app/",
     github: "https://github.com/0Anshu1/bit-branch",
-    tags: ["Education", "Google API", "Next.js", "IIITDMK"]
+    tags: ["Typescript", "Next.js","Supabase"]
   },
   {
     title: "CollabUp",
@@ -28,7 +28,7 @@ const projects = [
     link: "https://collabup.live/",
     githubFE: "https://github.com/0Anshu1/collabup-fe",
     githubBE: "https://github.com/0Anshu1/collabup-be",
-    tags: ["React", "Flask", "GenAI", "VectorDB"],
+    tags: ["React", "Flask", "GenAI", "VectorDB","Firebase"],
     award: "Hacksagon'2025 Top Performer"
   },
   {
