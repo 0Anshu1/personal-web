@@ -67,7 +67,7 @@ export default function Hero() {
           >
             <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-2xl">
                 <Image 
-                    src="/profile.jpeg" 
+                    src="/profile.jpg" 
                     alt="Anshu Saini" 
                     fill 
                     className="object-cover"
