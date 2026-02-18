@@ -25,7 +25,7 @@ const projects = [
     title: "CollabUp",
     problem: "Students struggle to find cross-discipline partners for projects and hackathons.",
     solution: "Engineered a peer-discovery ecosystem with RAG-based recommendations and AI assistants.",
-    link: "#",
+    link: "https://collabup.live/",
     githubFE: "https://github.com/0Anshu1/collabup-fe",
     githubBE: "https://github.com/0Anshu1/collabup-be",
     tags: ["React", "Flask", "GenAI", "VectorDB"],
@@ -35,7 +35,7 @@ const projects = [
     title: "RefactorLens",
     problem: "Manual code refactoring and legacy analysis are slow and error-prone.",
     solution: "AI-powered tool using AST analysis for automated refactoring suggestions across multiple languages.",
-    link: "#",
+    link: "https://refactorlens-moej6ujvt-anshu-sainis-projects-acfddb97.vercel.app/",
     githubFE: "https://github.com/0Anshu1/refactorlens-fe",
     githubBE: "https://github.com/0Anshu1/refactorlens-be",
     tags: ["React", "Node.js", "Python", "AST"]
