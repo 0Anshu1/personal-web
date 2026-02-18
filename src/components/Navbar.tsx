@@ -9,17 +9,31 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      setLastScrollY(window.scrollY)
       setScrolled(window.scrollY > 20)
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+
+    window.addEventListener("scroll", controlNavbar)
+    return () => window.removeEventListener("scroll", controlNavbar)
+  }, [lastScrollY])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-8"}`}>
+    <motion.nav 
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-8"}`}
+    >
       <div className={`max-w-6xl mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300 ${scrolled ? "glass rounded-full shadow-2xl mx-4" : ""}`}>
         <div className="flex-1" />{/* Spacer where name was */}
 
@@ -78,6 +92,6 @@ export default function Navbar() {
       )}
 
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </nav>
+    </motion.nav>
   )
 }

@@ -42,66 +42,84 @@ export default function ExperienceTree() {
         <p className="text-zinc-500 max-w-xl mx-auto">A unified view of my professional journey and growth milestones.</p>
       </div>
 
-      <div className="container mx-auto px-6 relative max-w-4xl">
-        {/* Simple Vertical Timeline Line */}
-        <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/50 via-zinc-800 to-transparent -translate-x-1/2 hidden md:block" />
+      <div className="container mx-auto px-4 relative">
+        {/* Curvy Branch SVG */}
+        <div className="absolute top-1/2 left-0 right-0 h-40 -translate-y-1/2 pointer-events-none z-0 overflow-visible">
+          <svg className="w-full h-full" viewBox="0 0 1200 160" preserveAspectRatio="none">
+            <motion.path
+              d="M0 80 C 150 20, 300 140, 450 80 C 600 20, 750 140, 900 80 C 1050 20, 1200 80"
+              fill="none"
+              stroke="url(#branchGradient)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+            <defs>
+              <linearGradient id="branchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#10b981" stopOpacity="0" />
+                <stop offset="20%" stopColor="#10b981" />
+                <stop offset="50%" stopColor="#3b82f6" />
+                <stop offset="80%" stopColor="#10b981" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
 
-        <div className="space-y-12 relative">
-          {experiences.map((exp, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`flex flex-col md:flex-row items-center gap-8 ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Data Card */}
-              <div className="flex-1 w-full group">
-                <div className="glass p-8 rounded-[40px] border-white/5 hover:border-emerald-500/20 transition-all duration-500 relative bg-black/40 backdrop-blur-3xl hover:-translate-y-1 shadow-xl overflow-hidden">
-                  <div className={`absolute -top-10 ${index % 2 === 0 ? "right-0" : "left-0"} w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl`} />
-                  
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-start">
-                      <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10 items-center min-h-[500px]">
+          {experiences.map((exp, index) => {
+            const isTop = index % 2 === 0;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: isTop ? -30 : 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className={`flex flex-col items-center gap-4 ${isTop ? "mb-auto" : "mt-auto"}`}
+              >
+                {/* Data Card - Compact */}
+                <div className={`glass p-4 rounded-3xl border-white/5 hover:border-emerald-500/20 transition-all duration-500 relative bg-black/40 backdrop-blur-3xl w-full max-w-[240px] shadow-lg group ${isTop ? "order-1" : "order-2"}`}>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[8px] font-black text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                         {exp.period}
                       </span>
-                      <div className="p-2 bg-zinc-900/50 rounded-2xl border border-white/5">
-                        <Briefcase className="w-5 h-5 text-zinc-500 group-hover:text-emerald-500 transition-colors" />
-                      </div>
+                      <Briefcase className="w-3 h-3 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
                     </div>
                     
                     <div>
-                      <h3 className="text-2xl font-black text-white group-hover:text-emerald-400 transition-colors tracking-tight">
+                      <h3 className="text-sm font-black text-white group-hover:text-emerald-400 transition-colors leading-tight">
                         {exp.role}
                       </h3>
-                      <p className="text-zinc-400 font-bold text-lg mt-1">{exp.company}</p>
+                      <p className="text-zinc-500 font-bold text-[10px]">{exp.company}</p>
                     </div>
 
-                    <div className="flex items-center gap-2 text-[10px] text-zinc-500 font-black uppercase tracking-widest bg-white/5 w-fit px-4 py-1.5 rounded-full border border-white/5">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-500/50" />
+                    <div className="flex items-center gap-1 text-[8px] text-zinc-600 font-black uppercase tracking-widest bg-white/5 w-fit px-2 py-0.5 rounded-full">
+                      <MapPin className="w-2.5 h-2.5 text-emerald-500/30" />
                       {exp.location}
                     </div>
 
-                    <p className="text-zinc-400 text-sm leading-relaxed border-l-2 border-emerald-500/20 pl-4 py-1 italic">
-                      "{exp.desc}"
+                    <p className="text-zinc-500 text-[10px] leading-relaxed line-clamp-2 md:line-clamp-none">
+                      {exp.desc}
                     </p>
                   </div>
                 </div>
-              </div>
 
-              {/* Timeline Marker (Normal) */}
-              <div className="relative z-10 hidden md:block">
-                <div className="w-4 h-4 rounded-full bg-zinc-900 border-2 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-transform duration-500 group-hover:scale-125" />
-                <div className="absolute inset-0 bg-emerald-500/20 blur-md rounded-full animate-pulse" />
-              </div>
-
-              {/* Spacer for balance */}
-              <div className="flex-1 hidden md:block" />
-            </motion.div>
-          ))}
+                {/* Hanging Connector */}
+                <div className={`flex flex-col items-center ${isTop ? "order-2" : "order-1"}`}>
+                    <div className={`w-px h-12 bg-gradient-to-b ${isTop ? "from-emerald-500/30 to-transparent" : "from-transparent to-emerald-500/30"}`} />
+                    <div className="relative">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-sm rounded-full animate-pulse" />
+                    </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
