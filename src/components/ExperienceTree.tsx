@@ -47,14 +47,14 @@ export default function ExperienceTree() {
         <div className="absolute top-1/2 left-0 right-0 h-40 -translate-y-1/2 pointer-events-none z-0 overflow-visible">
           <svg className="w-full h-full" viewBox="0 0 1200 160" preserveAspectRatio="none">
             <motion.path
-              d="M0 80 C 150 20, 300 140, 450 80 C 600 20, 750 140, 900 80 C 1050 20, 1200 80"
+              d="M-50 80 C 100 20, 250 140, 400 80 C 550 20, 700 140, 850 80 C 1000 20, 1150 140, 1250 80"
               fill="none"
               stroke="url(#branchGradient)"
               strokeWidth="3"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 2, ease: "easeInOut" }}
             />
             <defs>
