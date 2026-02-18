@@ -70,7 +70,7 @@ export default function Hero() {
                     src="/profile.jpg" 
                     alt="Anshu Saini" 
                     fill 
-                    className="object-cover"
+                    className="object-cover object-top"
                     priority
                 />
             </div>
