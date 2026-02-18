@@ -9,15 +9,16 @@ const projects = [
     problem: "Financial institutions and companies face high friction during customer onboarding and manual document verification.",
     solution: "An end-to-end document intelligence and KYC platform powered by AI to automate verification and onboarding seamlessly.",
     link: "#",
-    github: "#",
+    githubFE: "https://github.com/0Anshu1/verity-frontend",
+    githubBE: "https://github.com/0Anshu1/verity-backend",
     tags: ["AI", "Document Intelligence", "KYC", "Full Stack"]
   },
   {
     title: "Bit-Branch",
     problem: "IIITDM Kancheepuram students needed a centralized, synchronized portal for study materials and exam practice.",
     solution: "A custom platform synced with Google Classroom for materials, PYQs, and real-time exam scenario practice.",
-    link: "#",
-    github: "#",
+    link: "https://github.com/0Anshu1/bit-branch",
+    github: "https://github.com/0Anshu1/bit-branch",
     tags: ["Education", "Google API", "Next.js", "IIITDMK"]
   },
   {
@@ -25,7 +26,8 @@ const projects = [
     problem: "Students struggle to find cross-discipline partners for projects and hackathons.",
     solution: "Engineered a peer-discovery ecosystem with RAG-based recommendations and AI assistants.",
     link: "#",
-    github: "#",
+    githubFE: "https://github.com/0Anshu1/collabup-fe",
+    githubBE: "https://github.com/0Anshu1/collabup-be",
     tags: ["React", "Flask", "GenAI", "VectorDB"],
     award: "Hacksagon'2025 Top Performer"
   },
@@ -34,7 +36,8 @@ const projects = [
     problem: "Manual code refactoring and legacy analysis are slow and error-prone.",
     solution: "AI-powered tool using AST analysis for automated refactoring suggestions across multiple languages.",
     link: "#",
-    github: "#",
+    githubFE: "https://github.com/0Anshu1/refactorlens-fe",
+    githubBE: "https://github.com/0Anshu1/refactorlens-be",
     tags: ["React", "Node.js", "Python", "AST"]
   }
 ]
@@ -66,13 +69,29 @@ export default function Projects() {
                    )}
                    <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">{project.title}</h3>
                 </div>
-                <div className="flex gap-2">
-                   <a href={project.github} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-zinc-500 hover:text-white">
-                      <Github className="w-5 h-5" />
-                   </a>
-                   <a href={project.link} className="p-2 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-xl transition-colors text-emerald-400">
-                      <ExternalLink className="w-5 h-5" />
-                   </a>
+                <div className="flex gap-2 items-center">
+                   {project.github && (
+                     <a href={project.github} title="View Source" className="p-2 hover:bg-white/5 rounded-xl transition-colors text-zinc-500 hover:text-white">
+                        <Github className="w-5 h-5" />
+                     </a>
+                   )}
+                   {project.githubFE && (
+                     <a href={project.githubFE} title="Frontend Source" className="p-2 hover:bg-white/5 rounded-xl transition-colors text-zinc-500 hover:text-white flex flex-col items-center">
+                        <Github className="w-5 h-5" />
+                        <span className="text-[8px] mt-1 font-bold opacity-50">FE</span>
+                     </a>
+                   )}
+                   {project.githubBE && (
+                     <a href={project.githubBE} title="Backend Source" className="p-2 hover:bg-white/5 rounded-xl transition-colors text-zinc-500 hover:text-white flex flex-col items-center">
+                        <Github className="w-5 h-5" />
+                        <span className="text-[8px] mt-1 font-bold opacity-50">BE</span>
+                     </a>
+                   )}
+                   {project.link !== "#" && (
+                     <a href={project.link} className="p-2 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-xl transition-colors text-emerald-400">
+                        <ExternalLink className="w-5 h-5" />
+                     </a>
+                   )}
                 </div>
               </div>
               
