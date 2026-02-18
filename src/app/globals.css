@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-glass: rgba(17, 25, 40, 0.75);
+  --color-glass-border: rgba(255, 255, 255, 0.125);
+  --color-growth: #10b981;
+  --color-growth-light: #34d399;
+  --color-growth-dark: #059669;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --animate-grow-path: grow 2s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes grow {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
   }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-pill {
+  @apply px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-white/10;
+  background: var(--color-glass);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+}
+
+.growth-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-growth to-growth-light;
 }
