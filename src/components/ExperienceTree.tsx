@@ -43,13 +43,29 @@ export default function ExperienceTree() {
       </div>
 
       <div className="container mx-auto px-4 relative max-w-5xl">
+        {/* Global Gradients */}
+        <svg className="absolute w-0 h-0 invisible pointer-events-none">
+          <defs>
+            <linearGradient id="branchGradientHorizontal" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="50%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#10b981" />
+            </linearGradient>
+            <linearGradient id="branchGradientVertical" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="50%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#10b981" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         {/* Curvy Branch SVG - Desktop (Horizontal) */}
         <div className="absolute top-1/2 left-0 right-0 h-40 -translate-y-1/2 pointer-events-none z-0 overflow-visible hidden md:block">
           <svg className="w-full h-full" viewBox="0 0 1200 160" preserveAspectRatio="none">
             <motion.path
               d="M-50 80 C 100 20, 250 140, 400 80 C 550 20, 700 140, 850 80 C 1000 20, 1150 140, 1250 80"
               fill="none"
-              stroke="url(#branchGradient)"
+              stroke="url(#branchGradientHorizontal)"
               strokeWidth="3"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -66,7 +82,7 @@ export default function ExperienceTree() {
             <motion.path
               d="M 40 0 C 60 150, 20 250, 40 400 C 60 550, 20 650, 40 800"
               fill="none"
-              stroke="url(#branchGradient)"
+              stroke="url(#branchGradientVertical)"
               strokeWidth="3"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -74,13 +90,6 @@ export default function ExperienceTree() {
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 2, ease: "easeInOut" }}
             />
-            <defs>
-              <linearGradient id="branchGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(90)">
-                <stop offset="0%" stopColor="#10b981" />
-                <stop offset="50%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#10b981" />
-              </linearGradient>
-            </defs>
           </svg>
         </div>
 
