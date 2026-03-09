@@ -22,10 +22,10 @@ const projects = [
     tags: ["Typescript", "Next.js","Supabase"]
   },
   {
-    title: "CollabUp",
+    title: "PeerLab",
     problem: "Students struggle to find cross-discipline partners for projects and hackathons.",
     solution: "Engineered a peer-discovery ecosystem with RAG-based recommendations and AI assistants.",
-    link: "https://collabup.live/",
+    link: "https://sparkling-bonbon-34bb12.netlify.app/",
     githubFE: "https://github.com/0Anshu1/collabup-fe",
     githubBE: "https://github.com/0Anshu1/collabup-be",
     tags: ["React", "Flask", "GenAI", "VectorDB","Firebase"],
